@@ -1,8 +1,16 @@
 import "./style.css";
+import * as monaco from "monaco-editor";
 
 const app = document.querySelector<HTMLDivElement>("#app")!;
+const editor = monaco.editor.create(app, {
+  fontSize: 18,
+  language: "markdown",
+  lineHeight: 1.6,
+  minimap: { enabled: false },
+  padding: { bottom: 16, top: 16 },
+});
 
-app.innerHTML = `
-  <h1>Hello Vite!</h1>
-  <a href="https://vitejs.dev/guide/features.html" target="_blank">Documentation</a>
-`;
+editor.onDidChangeModelContent(() => {
+  const value = editor.getValue();
+  console.log(value);
+});
