@@ -21,6 +21,7 @@ const editor = monaco.editor.create(app, {
   lineHeight: 1.6,
   minimap: { enabled: false },
   padding: { bottom: 16, top: 16 },
+  theme: "vs-dark",
 });
 
 editor.onDidChangeModelContent(() => {
