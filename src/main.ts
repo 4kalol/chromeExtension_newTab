@@ -1,5 +1,18 @@
 import "./style.css";
 import * as monaco from "monaco-editor";
+import EditorWorker from "monaco-editor/esm/vs/editor/editor.worker?worker";
+
+declare global {
+  interface Window {
+    MonacoEnvironment: any;
+  }
+}
+
+self.MonacoEnvironment = {
+  getWorker() {
+    return new EditorWorker();
+  },
+};
 
 const app = document.querySelector<HTMLDivElement>("#app")!;
 const editor = monaco.editor.create(app, {
