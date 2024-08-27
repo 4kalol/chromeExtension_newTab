@@ -1,0 +1,6 @@
+{
+  "name": "NewTab Extension",
+  "version": "1.0",
+  "manifest_version": 3,
+  "description": "Editor in new tab"
+}
